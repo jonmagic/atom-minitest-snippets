@@ -1,0 +1,64 @@
+'.source.ruby':
+  'before :each':
+    'prefix': 'be'
+    'body': 'before ${1::each }do\n\t$0\nend'
+  'before':
+    'prefix': 'bef'
+    'body': 'before do\n\t$0\nend'
+  'describe [desc⇥]':
+    'prefix': 'desc'
+    'body': 'describe ${1:Class} do\n\n\tit$0\n\nend'
+  'describe [des⇥]':
+    'prefix': 'des'
+    'body': 'describe ${1:Class} do\n\n\tit$0\n\nend'
+  'it':
+    'prefix': 'it'
+    'body': 'it \'${1:test}\' do\n\t$0\nend'
+  'minispec':
+    'prefix': 'minispec'
+    'body': 'require \'minitest/autorun\'\nrequire \'${TM_FILENAME/(\\w+)_(test|spec).rb/$1/g}\'\n\ndescribe ${TM_FILENAME/([a-z]+)(_([a-z]+))*_test\\.rb/\\u$1\\u$3/g} do\n\n\tit$0\n\nend\n'
+  'minitest':
+    'prefix': 'minitest'
+    'body': 'require \'minitest/autorun\'\nrequire \'${TM_FILENAME/(\\w+)_(test|spec).rb/$1/g}\'\n\nclass ${TM_FILENAME/([a-z]+)(_([a-z]+))*_test\\.rb/\\u$1\\u$3/g}Test < MiniTest::Unit::TestCase\n\n\t$0\n\nend\n'
+  'must_be_close_to [mbct⇥]':
+    'prefix': 'mbct'
+    'body': 'must_be_close_to ${1:expected}, ${0:allowed_variance}'
+  'must_be_close_to [mbc⇥]':
+    'prefix': 'mbc'
+    'body': 'must_be_close_to ${1:expected}, ${0:allowed_variance}'
+  'must_be_empty':
+    'prefix': 'mbe'
+    'body': 'must_be_empty'
+  'must_be_instance_of':
+    'prefix': 'mbio'
+    'body': 'must_be_instance_of ${0:Class}'
+  'must_be_kind_of':
+    'prefix': 'mbko'
+    'body': 'must_be_kind_of ${0:Class}'
+  'must_be_nil':
+    'prefix': 'mbn'
+    'body': 'must_be_nil'
+  'must_be_same_as':
+    'prefix': 'mbsa'
+    'body': 'must_be_same_as ${0:expected}'
+  'must_be_within_delta':
+    'prefix': 'mbwd'
+    'body': 'must_be_within_delta ${1:expected}, ${0:allowed_variance}'
+  'must_be_within_epsilon':
+    'prefix': 'mbwe'
+    'body': 'must_be_within_epsilon ${1:expected}, ${0:allowed_variance}'
+  'must_equal':
+    'prefix': 'me'
+    'body': 'must_equal ${1:\'${2:expected}\'}$0'
+  'must_include':
+    'prefix': 'mi'
+    'body': 'must_include ${1:\'${2:expected}\'}$0'
+  'must_match':
+    'prefix': 'mm'
+    'body': 'must_match /${1:pattern}/$0'
+  'must_respond_to':
+    'prefix': 'mrt'
+    'body': 'must_respond_to :${0:method}'
+  'wont_include':
+    'prefix': 'wi'
+    'body': 'wont_include ${1:\'${2:unexpected}\'}$0'

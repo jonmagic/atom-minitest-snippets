@@ -1,0 +1,16 @@
+{
+  "name": "language-minitest",
+  "version": "0.0.0",
+  "description": "Minitest Ruby DSL snippets in Atom",
+  "repository": "https://github.com/jonmagic/atom-language-minitest",
+  "license": "MIT",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "dependencies": {
+  },
+  "bugs": {
+    "url": "https://github.com/jonmagic/atom-language-minitest/issues"
+  }
+}
